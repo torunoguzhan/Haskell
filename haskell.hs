@@ -124,4 +124,37 @@ getc =
        putChar b
 
 
+--Boþluk Karakteri Görene kadar okuma yapar 
+getL :: IO String
+getL = 
+      do
+        c<-getChar 
+        if c=='a' then return []
+        else 
+            do 
+               cs <-getL
+               return (c:cs)
+--Space karakteri görene kadar olan string ifadenin uzunluðunu döndürür
+getL2:: IO ()
+getL2 = 
+     do 
+       line <- getL
+       putStrLn ( (show.length) line)
 
+--(show.length) yerine show $ length de yazýlabilir.
+
+get3 = 
+    do 
+       putChar 'a'
+       putChar 'b'
+       x<-getChar
+       y<-getChar
+       putChar x
+       putChar y
+      
+
+
+
+                
+
+       
